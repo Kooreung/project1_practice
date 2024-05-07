@@ -19,5 +19,15 @@ FROM restaurantBoard;
 
 DROP TABLE restaurantBoard;
 
-ALTER TABLE restaurantBoard
-    MODIFY COLUMN score VARCHAR(10);
+CREATE TABLE member
+(
+    id        INT PRIMARY KEY AUTO_INCREMENT,
+    email     VARCHAR(100) NOT NULL UNIQUE,
+    password  VARCHAR(20)  NOT NULL,
+    nick_name VARCHAR(30)  NOT NULL UNIQUE
+);
+
+SELECT *
+FROM member;
+
+
