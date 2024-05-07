@@ -34,14 +34,14 @@
                 <tbody>
                 <c:forEach items="${restaurantBoardList}" var="restaurantBoard">
                     <c:url value="/board" var="viewLink">
-                        <c:param name="id" value="${restaurantBoard.id}"/>
+                        <c:param name="id" value="${restaurantBoard.id}"></c:param>
                     </c:url>
                     <tr>
                         <td>${restaurantBoard.id}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>${restaurantBoard.restaurantName}</td>
+                        <td>${restaurantBoard.foodName}</td>
+                        <td>${restaurantBoard.price}</td>
+                        <td>${restaurantBoard.score}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

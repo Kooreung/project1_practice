@@ -48,35 +48,35 @@
                         점수
                     </label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="score" id="inputScore1"
+                        <input class="form-check-input" type="radio" name="score" id="inputScore1" value="1.0"
                                required>
                         <label class="form-check-label" for="inputScore1">
                             1.0
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="score" id="inputScore2"
+                        <input class="form-check-input" type="radio" name="score" id="inputScore2" value="2.0"
                                required>
                         <label class="form-check-label" for="inputScore2">
                             2.0
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="score" id="inputScore3"
+                        <input class="form-check-input" type="radio" name="score" id="inputScore3" value="3.0"
                                required>
                         <label class="form-check-label" for="inputScore3">
                             3.0
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="score" id="inputScore4"
+                        <input class="form-check-input" type="radio" name="score" id="inputScore4" value="4.0"
                                required>
                         <label class="form-check-label" for="inputScore4">
                             4.0
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="score" id="inputScore5"
+                        <input class="form-check-input" type="radio" name="score" id="inputScore5" value="5.0"
                                required>
                         <label class="form-check-label" for="inputScore5">
                             5.0

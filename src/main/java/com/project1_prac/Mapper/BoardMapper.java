@@ -42,4 +42,22 @@ public interface BoardMapper {
             ORDER BY id DESC
             """)
     List<RestaurantBoard> selectAll();
+
+    @Select("""
+            SELECT restaurantBoard.id,
+                   restaurantBoard.restaurant_name,
+                   restaurantBoard.food_name,
+                   restaurantBoard.price,
+                   restaurantBoard.score
+            FROM restaurantBoard
+            LEFT JOIN member ON restaurantBoard.member_id = member.id
+            ORDER BY id DESC
+            LIMIT #{offset}, 10
+            """)
+    List<RestaurantBoard> selectAllByPage(int offset);
+
+    @Select("""
+            SELECT COUNT(*) FROM restaurantBoard
+            """)
+    int countAll();
 }

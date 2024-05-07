@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -30,16 +31,14 @@ public class BoardController {
 
     @GetMapping("/board")
     public String view(Integer id, Model model) {
-        System.out.println(id);
         RestaurantBoard restaurantBoard = boardService.get(id);
-        System.out.println(restaurantBoard);
         model.addAttribute("restaurantBoard", restaurantBoard);
         return "board/view";
     }
 
     @GetMapping("/")
-    public String home(Model model) {
-        model.addAllAttributes(boardService.list());
+    public String home(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) {
+        model.addAllAttributes(boardService.list(page));
         return "board/home";
     }
 }

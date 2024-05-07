@@ -30,4 +30,6 @@ CREATE TABLE member
 SELECT *
 FROM member;
 
-
+SELECT *
+FROM restaurantBoard
+ORDER BY id DESC;
