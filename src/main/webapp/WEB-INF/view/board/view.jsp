@@ -53,6 +53,11 @@
                 <textarea id="inputTextarea" class="form-control" cols="30" rows="10"
                           readonly>${restaurantBoard.content}</textarea>
             </div>
+            <div class="mb-3">
+                <button form="formDelete" class="btn btn-danger">
+                    게시글 삭제
+                </button>
+            </div>
         </div>
     </div>
 </div>

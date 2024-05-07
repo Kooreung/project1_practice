@@ -41,4 +41,10 @@ public class BoardController {
         model.addAllAttributes(boardService.list(page));
         return "board/home";
     }
+
+    @GetMapping("/delete")
+    public String delete(Integer id) {
+        boardService.delete(id);
+        return "redirect:/";
+    }
 }

@@ -48,4 +48,8 @@ public class BoardService {
                         "currentPage", page
                 ));
     }
+
+    public void delete(Integer id) {
+        boardMapper.deleteById(id);
+    }
 }

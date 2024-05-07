@@ -1,10 +1,7 @@
 package com.project1_prac.Mapper;
 
 import com.project1_prac.domain.RestaurantBoard;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -60,4 +57,10 @@ public interface BoardMapper {
             SELECT COUNT(*) FROM restaurantBoard
             """)
     int countAll();
+
+    @Delete("""
+            DELETE FROM restaurantBoard
+            WHERE id = #{id}
+            """)
+    int deleteById(Integer id);
 }
