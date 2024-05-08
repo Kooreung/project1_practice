@@ -19,8 +19,8 @@
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6">
-            <h3>가게 ${restaurantBoard.restaurantName} 메뉴 ${restaurantBoard.foodName} 의 평가</h3>
+        <div class="col-10">
+            <h3>맛집 평가</h3>
             <div class="mb-3">
                 <label for="inputRestaurant" class="form-label">
                     가게이름
@@ -66,6 +66,12 @@
             </div>
         </div>
     </div>
+</div>
+
+<div style="display: none">
+    <form id="formDelete" action="/delete" method="post" onsubmit="return confirm('삭제하시겠습니까?')">
+        <input type="hidden" name="id" value="${board.id}">
+    </form>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"

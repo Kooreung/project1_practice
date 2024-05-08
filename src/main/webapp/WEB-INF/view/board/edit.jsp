@@ -21,8 +21,8 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6">
-            <h3>게시글 수정</h3>
+        <div class="col-10">
+            <h3>내용 수정</h3>
             <br>
             <form action="/edit" method="post">
                 <input type="hidden" name="id" value="${restaurantBoard.id}">
