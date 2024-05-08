@@ -19,7 +19,7 @@
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-10">
             <h3>맛집 추천 리스트</h3>
             <table class="table table-striped">
                 <thead>
@@ -39,13 +39,77 @@
                     <tr>
                         <td>${restaurantBoard.id}</td>
                         <td>${restaurantBoard.restaurantName}</td>
-                        <td>${restaurantBoard.foodName}</td>
+                        <td>
+                            <a href="${viewLink}">${restaurantBoard.foodName}</a>
+                        </td>
                         <td>${restaurantBoard.price}</td>
                         <td>${restaurantBoard.score}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <c:if test="${pageInfo.currentPage > 1}">
+                        <c:url value="/" var="firstPageLink">
+                            <c:param name="page" value="1"/>
+                        </c:url>
+                        <li class="page-item">
+                            <a class="page-link" href="${firstPageLink}" aria-label="First">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    <c:if test="${pageInfo.prevPage > 0}">
+                        <c:url value="/" var="prevPageLink">
+                            <c:param name="page" value="${pageInfo.prevPage}"/>
+                        </c:url>
+                        <li class="page-item">
+                            <a class="page-link" href="${prevPageLink}" aria-label="Previous">
+                                &lt;
+                            </a>
+                        </li>
+                    </c:if>
+
+                    <c:forEach begin="${pageInfo.beginPage}" end="${pageInfo.endPage}" var="page">
+                        <c:url value="/" var="pageLink">
+                            <c:param name="page" value="${page}"/>
+                        </c:url>
+                        <li class="page-item ${pageInfo.currentPage eq page ? 'active' : ''}">
+                            <a class="page-link" href="${pageLink}">${page}</a>
+                        </li>
+                    </c:forEach>
+
+                    <c:if test="${pageInfo.nextPage < pageInfo.lastPage}">
+                        <c:url value="/" var="nextPageLink">
+                            <c:param name="page" value="${pageInfo.nextPage}"/>
+                        </c:url>
+                        <li class="page-item">
+                            <a class="page-link" href="${nextPageLink}" aria-label="Next">
+                                &gt;
+                            </a>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${pageInfo.currentPage < pageInfo.lastPage}">
+                        <c:url value="/" var="lastPageLink">
+                            <c:param name="page" value="${pageInfo.lastPage}"/>
+                        </c:url>
+                        <li class="page-item">
+                            <a class="page-link" href="${lastPageLink}" aria-label="Last">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
+
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

@@ -33,3 +33,8 @@ FROM member;
 SELECT *
 FROM restaurantBoard
 ORDER BY id DESC;
+
+INSERT INTO restaurantBoard
+    (restaurant_name, food_name, price, score, content, inserted)
+SELECT restaurant_name, food_name, price, score, content, inserted
+FROM restaurantBoard;
