@@ -24,20 +24,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/member/signup">
+                        회원 가입
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">
-                        음식점 추천 목록
+                        로그인
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/add">
-                        새 음식점 등록
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
         </div>

@@ -14,43 +14,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
           integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        a:link {
+            color: black;
+            text-decoration-line: none;
+        }
+
+        a:visited {
+            color: black;
+            text-decoration-line: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration-line: none;
+        }
+
+        a:active {
+            color: black;
+            text-decoration-line: none;
+        }
+    </style>
 </head>
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <h3>맛집 추천 리스트</h3>
-            <table class="table table-striped">
-                <thead>
+
+<div class="row justify-content-center">
+    <aside class="col-1">
+        <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">
+                <a href="/">
+                    맛집 리스트
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="/add">
+                    새 음식점 등록
+                </a>
+
+            </li>
+        </ul>
+    </aside>
+    <div class="col-8">
+        <h3>맛집 추천 리스트</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>가게 이름</th>
+                <th>음식 이름</th>
+                <th>가격</th>
+                <th>평점</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${restaurantBoardList}" var="restaurantBoard">
+                <c:url value="/board" var="viewLink">
+                    <c:param name="id" value="${restaurantBoard.id}"></c:param>
+                </c:url>
                 <tr>
-                    <th>#</th>
-                    <th>가게 이름</th>
-                    <th>음식 이름</th>
-                    <th>가격</th>
-                    <th>평점</th>
+                    <td>${restaurantBoard.id}</td>
+                    <td>${restaurantBoard.restaurantName}</td>
+                    <td>
+                        <a href="${viewLink}">${restaurantBoard.foodName}</a>
+                    </td>
+                    <td>${restaurantBoard.price}</td>
+                    <td>${restaurantBoard.score}</td>
                 </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${restaurantBoardList}" var="restaurantBoard">
-                    <c:url value="/board" var="viewLink">
-                        <c:param name="id" value="${restaurantBoard.id}"></c:param>
-                    </c:url>
-                    <tr>
-                        <td>${restaurantBoard.id}</td>
-                        <td>${restaurantBoard.restaurantName}</td>
-                        <td>
-                            <a href="${viewLink}">${restaurantBoard.foodName}</a>
-                        </td>
-                        <td>${restaurantBoard.price}</td>
-                        <td>${restaurantBoard.score}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-10">
