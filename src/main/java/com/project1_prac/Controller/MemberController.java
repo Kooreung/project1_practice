@@ -4,6 +4,7 @@ import com.project1_prac.Service.MemberService;
 import com.project1_prac.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("signup")
-    public String signup() {
-        return "member/signup";
+    public void signup() {
     }
 
     @PostMapping("signup")
@@ -38,5 +38,11 @@ public class MemberController {
     public String nicknameCheck(String nickName) {
         String message = memberService.nickNameCheck(nickName);
         return message;
+    }
+
+    @GetMapping("list")
+    public void list(Model model) {
+        model.addAttribute("memberList", memberService.list());
+
     }
 }
