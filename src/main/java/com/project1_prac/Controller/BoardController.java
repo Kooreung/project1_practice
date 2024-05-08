@@ -47,4 +47,18 @@ public class BoardController {
         boardService.delete(id);
         return "redirect:/";
     }
+
+    @GetMapping("/edit")
+    public String edit(Integer id, Model model) {
+        model.addAttribute("restaurantBoard", boardService.get(id));
+        return "board/edit";
+    }
+
+    @PostMapping("/edit")
+    public String editPost(RestaurantBoard restaurantBoard, RedirectAttributes rttr) {
+        boardService.update(restaurantBoard);
+
+        rttr.addAttribute("id", restaurantBoard.getId());
+        return "redirect:/board";
+    }
 }

@@ -52,4 +52,8 @@ public class BoardService {
     public void delete(Integer id) {
         boardMapper.deleteById(id);
     }
+
+    public void update(RestaurantBoard restaurantBoard) {
+        boardMapper.update(restaurantBoard);
+    }
 }

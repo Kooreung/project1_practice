@@ -54,9 +54,15 @@
                           readonly>${restaurantBoard.content}</textarea>
             </div>
             <div class="mb-3">
-                <button form="formDelete" class="btn btn-danger">
-                    게시글 삭제
-                </button>
+                <label for="inputInserted" class="form-label">
+                    작성일시
+                </label>
+                <input id="inputInserted" class="form-control" type="datetime-local" value="${restaurantBoard.inserted}"
+                       readonly>
+            </div>
+            <div class="mb-3">
+                <button form="formDelete" class="btn btn-danger">게시글 삭제</button>
+                <a href="/edit?id=${restaurantBoard.id}" class="btn btn-secondary">게시글 수정</a>
             </div>
         </div>
     </div>

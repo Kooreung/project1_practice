@@ -26,7 +26,8 @@ public interface BoardMapper {
                    restaurantBoard.food_name,
                    restaurantBoard.price,
                    restaurantBoard.score,
-                   restaurantBoard.member_id = member.id
+                   restaurantBoard.content,
+                   restaurantBoard.inserted
             FROM restaurantBoard
             LEFT JOIN member ON restaurantBoard.member_id = member.id
             WHERE restaurantBoard.id = #{id}
@@ -63,4 +64,15 @@ public interface BoardMapper {
             WHERE id = #{id}
             """)
     int deleteById(Integer id);
+
+    @Update("""
+            UPDATE restaurantBoard
+            SET restaurant_name = #{restaurantName},
+                food_name = #{foodName},
+                price = #{price},
+                score = #{score},
+                content = #{content}
+            WHERE id = #{id}
+            """)
+    int update(RestaurantBoard restaurantBoard);
 }
